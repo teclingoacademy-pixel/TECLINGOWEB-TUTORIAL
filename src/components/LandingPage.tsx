@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { TeclingoLogo } from './TeclingoLogo.tsx';
 import { UserRole } from './RoleWorkspace.tsx';
+import { SupportFooter } from './SupportFooter.tsx';
 import {
   Shield,
   GraduationCap,
@@ -13,19 +14,6 @@ import {
   MessageSquare,
   Trophy,
 } from 'lucide-react';
-
-// Custom WhatsApp SVG Icon for exact brand presentation
-const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-    aria-hidden="true"
-  >
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.999-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.885-9.885 9.885m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.456 5.711 1.457h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 00-3.487-8.412z" />
-  </svg>
-);
 
 interface LandingPageProps {
   onSelectRole: (role: UserRole) => void;
@@ -116,7 +104,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
   return (
     <div className="min-h-screen flex flex-col justify-between bg-radial-dark bg-tech-grid text-[#F8FAFC] relative overflow-x-hidden">
-      {/* Dynamic ambient background glow contained to prevent horizontal scroll */}
+      {/* Dynamic ambient background glow */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] max-md:w-64 max-md:h-64 rounded-full blur-[140px] max-md:blur-[80px] transition-all duration-700 opacity-25"
@@ -135,7 +123,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         />
       </div>
 
-      {/* 1) ENCABEZADO SUPERIOR (Header Desktop-first: px-12 py-6, adaptado a max-md:px-4 py-4) */}
+      {/* 1) HEADER */}
       <header className="relative z-20 w-full px-12 max-lg:px-8 max-md:px-4 py-6 max-md:py-4 border-b border-white/[0.05] flex items-center justify-between gap-4 sticky top-0 backdrop-blur-xl bg-[#061a1a]/70">
         <TeclingoLogo variant="header" />
 
@@ -152,13 +140,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </div>
       </header>
 
-      {/* 2) CONTENEDOR PRINCIPAL: Desktop base max-w-[1400px] px-12 py-20, adaptado max-md:px-4 py-10 */}
+      {/* 2) CONTENEDOR PRINCIPAL */}
       <main className="relative z-10 flex-1 w-full max-w-[1400px] mx-auto px-12 max-lg:px-8 max-md:px-4 py-20 max-md:py-10 flex flex-col justify-center items-center">
         {/* Hero Section */}
         <div className="text-center max-w-4xl mb-16 max-md:mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[11px] font-mono-tech text-white/60 uppercase tracking-[0.2em] mb-6 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#DEFF9A]" />
-            <span>PORTAL INSTITUCIONAL · VERACRUZ 2026</span>
+            <span>PORTAL INSTITUCIONAL &middot; VERACRUZ 2026</span>
           </div>
 
           <h1 className="text-7xl max-lg:text-5xl max-md:text-4xl max-sm:text-3xl font-display font-black uppercase italic tracking-tighter leading-[0.95] break-words text-white text-glow-title">
@@ -174,12 +162,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </p>
         </div>
 
-        {/* 3) 🆕 SECCIÓN HERRAMIENTAS ESTRELLA (AURIX + TOEFL SIMULATOR) Desktop: 2 columnas, Móvil: 1 columna */}
+        {/* 3) SECCIÓN HERRAMIENTAS ESTRELLA */}
         <div className="w-full mb-16 max-md:mb-10">
           <div className="flex items-center gap-3 mb-8 max-md:mb-5">
             <span className="w-2.5 h-2.5 rounded-full bg-[#DEFF9A] shadow-[0_0_10px_#DEFF9A]" />
             <h2 className="font-display font-black text-sm max-md:text-xs tracking-[0.25em] uppercase text-white/90">
-              ▸ HERRAMIENTAS ESTRELLA DEL ECOSISTEMA
+              &rsaquo; HERRAMIENTAS ESTRELLA DEL ECOSISTEMA
             </h2>
             <span className="text-[10px] font-mono-tech text-[#DEFF9A] bg-[#DEFF9A]/10 border border-[#DEFF9A]/20 px-2.5 py-0.5 rounded-full">
               ACCESO DESTACADO
@@ -187,7 +175,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
           <div className="grid grid-cols-2 max-lg:grid-cols-1 gap-8 max-md:gap-5">
-            {/* TARJETA 1: AURIX (Desktop: p-10 rounded-[2.5rem], Móvil: max-md:p-6 rounded-2xl) */}
+            {/* TARJETA 1: AURIX */}
             <motion.button
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
@@ -209,7 +197,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E879F9]/15 border border-[#E879F9]/40 text-[#E879F9] text-[10px] font-mono font-bold uppercase tracking-widest shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-[#E879F9] animate-pulse" />
-                    🔥 IA EN VIVO
+                    IA EN VIVO
                   </span>
                   <div className="w-14 h-14 max-md:w-11 max-md:h-11 rounded-2xl bg-[#E879F9]/10 border border-[#E879F9]/30 flex items-center justify-center text-[#E879F9] group-hover:scale-110 transition-transform">
                     <MessageSquare size={28} className="max-md:size-5" />
@@ -232,7 +220,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {['🎙 Voz real', '🚨 Pánico ES', '⚡ Velocidad', '🧠 Memory IA'].map((badge) => (
+                  {['Voz real', 'Panico ES', 'Velocidad', 'Memory IA'].map((badge) => (
                     <span
                       key={badge}
                       className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 text-[10px] font-mono font-bold"
@@ -249,7 +237,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="text-xs font-mono text-[#E879F9]/70 hidden sm:inline">
-                  Tutorial Interactivo →
+                  Tutorial Interactivo
                 </span>
               </div>
             </motion.button>
@@ -276,7 +264,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 <div className="flex items-center justify-between">
                   <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F59E0B]/15 border border-[#F59E0B]/40 text-[#F59E0B] text-[10px] font-mono font-bold uppercase tracking-widest shadow-sm">
                     <Trophy size={11} />
-                    🏆 CERTIFICACIÓN
+                    CERTIFICACION
                   </span>
                   <div className="w-14 h-14 max-md:w-11 max-md:h-11 rounded-2xl bg-[#F59E0B]/10 border border-[#F59E0B]/30 flex items-center justify-center text-[#F59E0B] group-hover:scale-110 transition-transform">
                     <GraduationCap size={28} className="max-md:size-5" />
@@ -299,7 +287,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {['📋 ITP 3-Skills', '🎤 iBT Speaking', '⏱ Timer oficial', '📊 Score real'].map((badge) => (
+                  {['ITP 3-Skills', 'iBT Speaking', 'Timer oficial', 'Score real'].map((badge) => (
                     <span
                       key={badge}
                       className="px-3 py-1 rounded-lg bg-white/[0.04] border border-white/10 text-white/70 text-[10px] font-mono font-bold"
@@ -316,23 +304,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="text-xs font-mono text-[#F59E0B]/70 hidden sm:inline">
-                  Tutorial Interactivo →
+                  Tutorial Interactivo
                 </span>
               </div>
             </motion.button>
           </div>
         </div>
 
-        {/* Separador elegante hacia los perfiles */}
+        {/* Separador */}
         <div className="w-full flex items-center gap-4 mb-10 max-md:mb-6">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
           <span className="text-white/40 text-xs max-md:text-[10px] font-black uppercase tracking-[0.4em] font-mono">
-            O EXPLORA POR PERFIL →
+            O EXPLORA POR PERFIL
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         </div>
 
-        {/* 4) The 4 Profile Cards Grid (Desktop: grid-cols-4 gap-8, Tablet: max-lg:grid-cols-2, Móvil: max-md:grid-cols-1 gap-4) */}
+        {/* 4) GRID DE PERFILES */}
         <div className="w-full grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1 gap-8 max-md:gap-4">
           {profiles.map((profile) => {
             const Icon = profile.icon;
@@ -414,30 +402,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </div>
       </main>
 
-      {/* FOOTER Desktop-first (px-12 py-8, adaptado a max-md:px-4 py-6) */}
-      <footer className="neo-glass-footer relative z-20 w-full px-12 max-lg:px-8 max-md:px-4 py-8 max-md:py-6 safe-bottom">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="text-xs max-md:text-[10px] font-mono-tech text-white/40 uppercase tracking-[0.2em]">
-            © 2026 CONCEPTOS AI · PÁNUCO, VERACRUZ
-          </div>
-
-          <div>
-            <a
-              href="https://wa.me/528461108789?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20TECLINGO%20PRO"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Contactar por WhatsApp al +52 846 110 8789"
-              className="inline-flex items-center gap-2.5 px-6 max-md:px-4 py-3 max-md:py-2.5 rounded-full text-xs font-semibold bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/30 hover:border-[#25D366]/70 text-[#25D366] hover:text-[#25D366] transition-all duration-300 shadow-[0_0_15px_-3px_rgba(37,211,102,0.2)] hover:shadow-[0_0_22px_rgba(37,211,102,0.4)] group min-h-[44px]"
-            >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366] group-hover:scale-110 transition-transform filter drop-shadow-[0_0_4px_rgba(37,211,102,0.8)]" />
-              <span className="font-mono-tech tracking-wider text-sm max-md:text-xs">+52 846 110 8789</span>
-              <span className="text-[10px] uppercase font-mono-tech text-white/50 hidden sm:inline">
-                · Soporte WhatsApp
-              </span>
-            </a>
-          </div>
-        </div>
-      </footer>
+      {/* 5) FOOTER (con el equipo de soporte) */}
+      <SupportFooter />
     </div>
   );
 };
