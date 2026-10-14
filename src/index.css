@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg-primary: #061a1a;
+    --color-bg-secondary: #0a0f1a;
+    --color-neon: #DEFF9A;
+    --color-chrome: #E5E7EB;
+    --color-cyan: #22D3EE;
+    --color-emerald: #4ADE80;
+    --color-whatsapp: #25D366;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: #F8FAFC;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.font-script {
+  font-family: 'Caveat', cursive;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Background Technical Grid */
+.bg-tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(222, 255, 154, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(222, 255, 154, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-radial-dark {
+  background: radial-gradient(circle at 50% 35%, #0d2828 0%, #061a1a 60%, #040d0d 100%);
+}
+
+/* Glassmorphism Classes */
+.neo-glass {
+  background: rgba(10, 15, 26, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.neo-glass-header {
+  background: rgba(6, 26, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neo-glass-footer {
+  background: rgba(10, 15, 26, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Glow effects */
+.glow-neon-sm {
+  filter: drop-shadow(0 0 10px rgba(222, 255, 154, 0.35));
+}
+
+.glow-neon-lg {
+  box-shadow: 0 0 45px -10px rgba(222, 255, 154, 0.3);
+}
+
+.text-glow-neon {
+  text-shadow: 0 0 16px rgba(222, 255, 154, 0.5), 0 0 32px rgba(222, 255, 154, 0.2);
+}
+
+.text-glow-title {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.25), 0 0 40px rgba(222, 255, 154, 0.2);
+}
+
+/* Card hover transitions */
+.profile-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Safe area padding utilities */
+.safe-top {
+  padding-top: max(16px, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Custom discreet scrollbar for long modal content */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
