@@ -1,0 +1,6 @@
+{
+  "name": "TECLINGO | Portal de Acceso",
+  "description": "CONCEPTOS AI M PANUCO VER. 2026 - Splash Page, Landing con Herramientas Estrella (AURIX + TOEFL) y 58 tutoriales interactivos para Director, Docente, Estudiante y Global",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
